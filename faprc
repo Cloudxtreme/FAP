@@ -11,7 +11,7 @@
 
 # set alias so the thing also acts as a command
 
-alias fap='~/.promptrc $1'
+alias fap='~/.faprc $1'
 
 # some colors to choose from
 
@@ -83,7 +83,6 @@ fi)'
 
 prompt_dos='\n\w>'
 prompt_nocolor='\n\u@\h \w\n$ '
-#prompt_full=$prompt_userhost' '$prompt_time' '$prompt_git''$prompt_cwd' '$prompt_end
 prompt_full_git=$prompt_time' '$prompt_git''$prompt_userhost':'$prompt_cwd''$prompt_end
 prompt_full=$prompt_time' '$prompt_userhost':'$prompt_cwd''$prompt_end
 prompt_xterm="$prompt_xtitle""$prompt_full_git"
@@ -92,18 +91,18 @@ prompt_xterm="$prompt_xtitle""$prompt_full_git"
 
 case $TERM in
   xterm*|rxvt|screen*|cygwin)
-    freaknAwesomeCoolSuperPrompt=$prompt_xterm ;;
+    freaknAwesomePrompt=$prompt_xterm ;;
   linux*|*vt100*|cons25)
-    freaknAwesomeCoolSuperPrompt=$prompt_full ;;
+    freaknAwesomePrompt=$prompt_full ;;
   *)
-    freaknAwesomeCoolSuperPrompt=$prompt_nocolor ;;
+    freaknAwesomePrompt=$prompt_nocolor ;;
 esac
 
 case $1 in
   off)
-    freaknAwesomeCoolSuperPrompt=$prompt_full ;;
+    freaknAwesomePrompt=$prompt_full ;;
   git)
-    freaknAwesomeCoolSuperPrompt=$prompt_full_git ;;
+    freaknAwesomePrompt=$prompt_full_git ;;
 esac
 
-export PS1=$freaknAwesomeCoolSuperPrompt
+export PS1=$freaknAwesomePrompt
