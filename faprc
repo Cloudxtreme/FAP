@@ -11,7 +11,7 @@
 
 # set alias so the thing also acts as a command
 
-alias fap='~/.faprc $1'
+alias fap='. ~/git/FAP/faprc'
 
 # some colors to choose from
 
@@ -81,8 +81,8 @@ fi)'
 
 # almost completed prompts
 
-prompt_dos='\n\w>'
-prompt_nocolor='\n\u@\h \w\n$ '
+prompt_dos='\w> '
+prompt_nocolor='\u@\h \w$ '
 prompt_full_git=$prompt_time' '$prompt_git''$prompt_userhost':'$prompt_cwd''$prompt_end
 prompt_full=$prompt_time' '$prompt_userhost':'$prompt_cwd''$prompt_end
 prompt_xterm="$prompt_xtitle""$prompt_full_git"
@@ -99,10 +99,16 @@ case $TERM in
 esac
 
 case $1 in
-  off)
+  off|gitoff)
     freaknAwesomePrompt=$prompt_full ;;
-  git)
+  on|giton)
     freaknAwesomePrompt=$prompt_full_git ;;
+  noc*)
+    freaknAwesomePrompt=$prompt_nocolor ;;
+  dos)
+    freaknAwesomePrompt=$prompt_dos ;;
+  xt*)
+    freaknAwesomePrompt=$prompt_xterm ;;
 esac
 
 export PS1=$freaknAwesomePrompt
